@@ -3,27 +3,12 @@ using System.Collections;
 
 public class RubiksCubeSolver : MonoBehaviour
 {
+	public RubiksCubeController fullCubeController;
 	private ArrayList ActionsList = new ArrayList();
+
 	private CubeModel[,,] fullCube;
 
-	public ArrayList SolveRubiksCube(CubeModel[,,] fullCubeModel)
-	{
-		this.fullCube = fullCubeModel;
-		SolveTopCrossMiddle ();
-		SolveTopCross ();
-		SolveTopCorners ();
-		SpinMiddle ();
-		SolveMiddleSides ();
-		SolveBottomCross ();
-		SolveBottomCrossSides ();
-		SolveBottomCorners ();
-		FinishBottomCorners ();
-		SpinToWin ();
-
-		return ActionsList;
-	}
-
-	private void SolveTopCrossMiddle()
+	public void SolveTopCrossMiddle(CubeModel[,,] fullCubeModel)
 	{
 		//find the middle white piece and move it to center top
 		//it can only be in one of six spots
@@ -32,6 +17,7 @@ public class RubiksCubeSolver : MonoBehaviour
 		temp = fullCube [1, 1, 0];
 		if (temp.GetTopColor ().Equals (Color.white))
 		{
+			fullCubeController.IncreaseStage();
 			return;
 		}
 
@@ -40,6 +26,7 @@ public class RubiksCubeSolver : MonoBehaviour
 		{
 			ActionsList.Add(9);
 			ActionsList.Add(9);
+			fullCubeController.IncreaseStage();
 			return;
 		}
 
@@ -47,6 +34,7 @@ public class RubiksCubeSolver : MonoBehaviour
 		if (temp.GetFrontColor ().Equals (Color.white))
 		{
 			ActionsList.Add(9);
+			fullCubeController.IncreaseStage();
 			return;
 		}
 
@@ -54,6 +42,7 @@ public class RubiksCubeSolver : MonoBehaviour
 		if (temp.GetBackColor ().Equals (Color.white))
 		{
 			ActionsList.Add(8);
+			fullCubeController.IncreaseStage();
 			return;
 		}
 
@@ -61,6 +50,7 @@ public class RubiksCubeSolver : MonoBehaviour
 		if (temp.GetLeftColor ().Equals (Color.white))
 		{
 			ActionsList.Add(14);
+			fullCubeController.IncreaseStage();
 			return;
 		}
 
@@ -68,52 +58,53 @@ public class RubiksCubeSolver : MonoBehaviour
 		if (temp.GetRightColor ().Equals (Color.white))
 		{
 			ActionsList.Add(15);
+			fullCubeController.IncreaseStage();
 			return;
 		}
 	}
 
-	private void SolveTopCross()
+	public void SolveTopCross(CubeModel[,,] fullCubeModel)
 	{
 		//second rotate the rest of the cross sides
 		//TODO: SOLVE WHITE/TOP SIDE
 	}
 	
-	private void SolveTopCorners()
+	public void SolveTopCorners(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: SOLVE WHITE/TOP SIDE
 	}
 	
-	private void SpinMiddle()
+	public void SpinMiddle(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: SPIN MIDDLE COLORS TO MATCHING FACE
 	}
 	
-	private void SolveMiddleSides()
+	public void SolveMiddleSides(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: SOLVE MIDDLE SIDES
 	}
 	
-	private void SolveBottomCross()
+	public void SolveBottomCross(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: SOLVE YELLOW/BOTTOM CROSS
 	}
 	
-	private void SolveBottomCrossSides()
+	public void SolveBottomCrossSides(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: SOLVE BOTTOM CROSS SIDES
 	}
 	
-	private void SolveBottomCorners()
+	public void SolveBottomCorners(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: PLACE CORNERS IN RIGHT SPOT
 	}
 	
-	private void FinishBottomCorners()
+	public void FinishBottomCorners(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: SPIN CORNERS TO RIGHT DIRECTION
 	}
 	
-	private void SpinToWin()
+	public void SpinToWin(CubeModel[,,] fullCubeModel)
 	{
 		//TODO: SPIN COLORS TO MATCH AND FINISH
 	}

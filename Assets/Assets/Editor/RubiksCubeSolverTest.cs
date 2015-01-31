@@ -8,14 +8,15 @@ public class RubiksCubeSolverTest
 	public CubeModel[] _cubeArrayMiddleHorizontal = new CubeModel[9];
 	public CubeModel[] _cubeArrayBottom = new CubeModel[9];
 	
+	public RubiksCubeController fullCubeController = new RubiksCubeController ();
+	public RubiksCubeModel fullCubeModel = new RubiksCubeModel ();
+	public RubiksCubeSolver fullCubeSolver = new RubiksCubeSolver ();
+
 	[Test]
 	public void TestSolveTop()
 	{
 		//Arrange
 		//create data
-		RubiksCubeController fullCubeController = new RubiksCubeController ();
-		RubiksCubeModel fullCubeModel = new RubiksCubeModel ();
-		RubiksCubeSolver fullCubeSolver = new RubiksCubeSolver ();
 
 		fullCubeController.GiveCubes (this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
 		fullCubeModel.InitializeRubiksCube ();

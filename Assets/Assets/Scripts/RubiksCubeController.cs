@@ -8,6 +8,9 @@ using System.Collections;
 public class RubiksCubeController : MonoBehaviour
 {
 	private int _rotationDegree = 90;
+	private static int STAGE_COUNT = 10;
+	private int STAGE = 1;
+	private bool _solving;
 
 	public RubiksCubeModel fullCubeModel;
 	public RubiksCubeView fullCubeView;
@@ -29,17 +32,6 @@ public class RubiksCubeController : MonoBehaviour
 			{
 				CallMethod ((int)ActionQue [0]);
 				ActionQue.RemoveAt (0);
-			}
-		}
-		else
-		{
-			if( ReverseActionQue.Count > 0 )
-			{
-				if( !IsRotating() )
-				{
-					CallMethod((int)ReverseActionQue[0]);
-					ReverseActionQue.RemoveAt(0);
-				}
 			}
 		}
 	}
@@ -225,20 +217,6 @@ public class RubiksCubeController : MonoBehaviour
 		{
 			randMethod = Random.Range(0, 24);
 			ActionQue.Add(randMethod);
-
-			if( randMethod == 24 )
-			{
-
-			}
-			else if( randMethod % 2 == 0 )
-			{
-				randMethod++;
-			}
-			else
-			{
-				randMethod--;
-			}
-			ReverseActionQue.Insert(0,randMethod);
 		}
 	}
 
@@ -335,6 +313,16 @@ public class RubiksCubeController : MonoBehaviour
 		return this._rotationDegree;
 	}
 
+	public void IncreaseStage ()
+	{
+		this.STAGE = this.STAGE + 1;
+	}
+
+	public void SetSolving(bool isSolving)
+	{
+		this._solving = isSolving;
+	}
+
 	/**************************************INITIALIZATION FUNCTIONS*****************************************/
 
 	public bool IsComplete()
@@ -365,12 +353,44 @@ public class RubiksCubeController : MonoBehaviour
 		//Remember technically the cube will be "upside down" after the first side is solved
 		//solver will determine set of rotation patterns to apply 
 		//then will return list of actions for controller to take
-		ArrayList Actions;
-
-		Actions = fullCubeSolver.SolveRubiksCube (fullCubeModel.GetRubiksCubeArray());
-		for (int i = 0; i < Actions.Count-1; i++)
+		while (STAGE <= STAGE_COUNT)
 		{
-			ActionQue.Add((int)Actions[i]);
+			if( ActionQue.Count == 0 )
+			{
+				switch(STAGE)
+				{
+					case 1:
+						fullCubeSolver.SolveTopCrossMiddle (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 2:
+						fullCubeSolver.SolveTopCross (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 3:
+						fullCubeSolver.SolveTopCorners (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 4:
+						fullCubeSolver.SpinMiddle (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 5:
+						fullCubeSolver.SolveMiddleSides (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 6:
+						fullCubeSolver.SolveBottomCross (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 7:
+						fullCubeSolver.SolveBottomCrossSides (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 8:	
+						fullCubeSolver.SolveBottomCorners (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 9:
+						fullCubeSolver.FinishBottomCorners (fullCubeModel.GetRubiksCubeArray());
+						break;
+					case 10:
+						fullCubeSolver.SpinToWin (fullCubeModel.GetRubiksCubeArray());
+						break;
+				}
+			}
 		}
 	}
 
