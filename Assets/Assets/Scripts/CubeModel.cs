@@ -13,7 +13,7 @@ public class CubeModel : MonoBehaviour
 		StartCoroutine(rotateCubeCoroutine(cubeAxis, cubeDirection, cubeTime));
 	}
 
-	IEnumerator rotateCubeCoroutine(Vector3 cubeAxis, Vector3 cubeDirection, float cubeTime)
+	private IEnumerator rotateCubeCoroutine(Vector3 cubeAxis, Vector3 cubeDirection, float cubeTime)
 	{
 		cubeController.SetRotating (true);
 		for (var i = 0; i < 30; i++)

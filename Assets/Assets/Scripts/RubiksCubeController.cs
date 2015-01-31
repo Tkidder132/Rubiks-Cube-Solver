@@ -21,7 +21,7 @@ public class RubiksCubeController : MonoBehaviour
 	ArrayList ReverseActionQue = new ArrayList();
 
 	// Update is called once per frame
-	void Update ()
+	private void Update ()
 	{
 		if (ActionQue.Count > 0)
 		{
@@ -333,11 +333,6 @@ public class RubiksCubeController : MonoBehaviour
 	public int GetRotationDegree()
 	{
 		return this._rotationDegree;
-	}
-
-	void findCube()
-	{
-
 	}
 
 	/**************************************INITIALIZATION FUNCTIONS*****************************************/

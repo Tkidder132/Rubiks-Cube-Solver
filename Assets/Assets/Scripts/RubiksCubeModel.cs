@@ -68,7 +68,7 @@ public class RubiksCubeModel : MonoBehaviour
 	
 	/************************************************************************************************/
 
-	void RotateLayerClockwise(int layer)
+	private void RotateLayerClockwise(int layer)
 	{
 		var tempCube = new CubeModel ();
 		
@@ -90,7 +90,7 @@ public class RubiksCubeModel : MonoBehaviour
 		fullCube [1, 1, layer] = fullCube [1, 1, layer];
 	}
 	
-	void RotateLayerCounterClockwise(int layer)
+	private void RotateLayerCounterClockwise(int layer)
 	{
 		var tempCube = new CubeModel ();
 
@@ -144,7 +144,7 @@ public class RubiksCubeModel : MonoBehaviour
 	
 	/************************************************************************************************/
 
-	void RotateSliceForward(int slice)
+	private void RotateSliceForward(int slice)
 	{
 		var tempCube = new CubeModel ();
 
@@ -166,7 +166,7 @@ public class RubiksCubeModel : MonoBehaviour
 		fullCube [slice, 1, 1] = fullCube [slice, 1, 1];
 	}
 
-	void RotateSliceBackward(int slice)
+	private void RotateSliceBackward(int slice)
 	{
 		var tempCube = new CubeModel ();
 
@@ -220,7 +220,7 @@ public class RubiksCubeModel : MonoBehaviour
 	
 	/************************************************************************************************/
 
-	void RotateFaceClockwise (int face)
+	private void RotateFaceClockwise (int face)
 	{
 		var tempCube = new CubeModel ();
 
@@ -242,7 +242,7 @@ public class RubiksCubeModel : MonoBehaviour
 		fullCube [1, face, 1] = fullCube [1, face, 1];
 	}
 
-	void RotateFaceCounterClockwise(int face)
+	private void RotateFaceCounterClockwise(int face)
 	{
 		var tempCube = new CubeModel ();
 

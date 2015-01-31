@@ -62,7 +62,7 @@ public class RubiksCubeView : MonoBehaviour
 	
 	/************************************************************************************************/
 
-	void RotateLayerClockwise(int layer, RubiksCubeModel fullCubeModel)
+	private void RotateLayerClockwise(int layer, RubiksCubeModel fullCubeModel)
 	{
 		for( var x = 0; x < 3; x++ )
 		{
@@ -73,7 +73,7 @@ public class RubiksCubeView : MonoBehaviour
 		}
 	}
 
-	void RotateLayerCounterClockwise(int layer, RubiksCubeModel fullCubeModel)
+	private void RotateLayerCounterClockwise(int layer, RubiksCubeModel fullCubeModel)
 	{
 		for( var x = 0; x < 3; x++ )
 		{
@@ -116,7 +116,7 @@ public class RubiksCubeView : MonoBehaviour
 	
 	/************************************************************************************************/
 
-	void RotateSliceForward(int slice, RubiksCubeModel fullCubeModel)
+	private void RotateSliceForward(int slice, RubiksCubeModel fullCubeModel)
 	{
 		for( var z = 0; z < 3; z++ )
 		{
@@ -127,7 +127,7 @@ public class RubiksCubeView : MonoBehaviour
 		}
 	}
 
-	void RotateSliceBackward(int slice, RubiksCubeModel fullCubeModel)
+	private void RotateSliceBackward(int slice, RubiksCubeModel fullCubeModel)
 	{
 		for( var z = 0; z < 3; z++ )
 		{
@@ -170,7 +170,7 @@ public class RubiksCubeView : MonoBehaviour
 	
 	/************************************************************************************************/
 
-	void RotateFaceClockwise(int face, RubiksCubeModel fullCubeModel)
+	private void RotateFaceClockwise(int face, RubiksCubeModel fullCubeModel)
 	{
 		for (var z = 0; z < 3; z++)
 		{
@@ -181,7 +181,7 @@ public class RubiksCubeView : MonoBehaviour
 		}
 	}
 
-	void RotateFaceCounterClockwise(int face, RubiksCubeModel fullCubeModel)
+	private void RotateFaceCounterClockwise(int face, RubiksCubeModel fullCubeModel)
 	{
 		for (var z = 0; z < 3; z++)
 		{

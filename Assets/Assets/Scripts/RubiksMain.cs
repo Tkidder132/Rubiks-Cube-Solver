@@ -13,7 +13,7 @@ public class RubiksMain : MonoBehaviour
 	int _level = 0;
 
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 		fullCubeController.GiveCubes(this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
 		fullCubeController.InitializeRubiksCube ();
@@ -23,7 +23,7 @@ public class RubiksMain : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	private void Update ()
 	{
 		if( Input.GetKeyDown(KeyCode.LeftArrow) )
 		{
