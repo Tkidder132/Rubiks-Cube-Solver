@@ -6,7 +6,7 @@ public class SampleTestNew
 	[Test]
 	public void SimpleAddition()
 	{
-		Assert.That (2 + 2 == 4);
+		//Assert.That (2 + 2 == 4);
 
 		//Arrange
 		var two = 2;

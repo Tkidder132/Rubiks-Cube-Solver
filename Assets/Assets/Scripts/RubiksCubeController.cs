@@ -370,15 +370,13 @@ public class RubiksCubeController : MonoBehaviour
 		//Remember technically the cube will be "upside down" after the first side is solved
 		//solver will determine set of rotation patterns to apply 
 		//then will return list of actions for controller to take
-		fullCubeSolver.SolveTopCross();
-		fullCubeSolver.SolveTopCorners();
-		fullCubeSolver.SpinMiddle();
-		fullCubeSolver.SolveMiddleSides();
-		fullCubeSolver.SolveBottomCross();
-		fullCubeSolver.SolveBottomCrossSides();
-		fullCubeSolver.SolveBottomCorners();
-		fullCubeSolver.FinishBottomCorners();
-		fullCubeSolver.SpinToWin();
+		ArrayList Actions;
+
+		Actions = fullCubeSolver.SolveRubiksCube (fullCubeModel.GetRubiksCube());
+		for (int i = 0; i < Actions.Count-1; i++)
+		{
+			ActionQue.Add((int)Actions[i]);
+		}
 	}
 
 }

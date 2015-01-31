@@ -49,4 +49,34 @@ public class CubeModel : MonoBehaviour
 		}
 		return true;
 	}
+
+	public Color GetFrontColor()
+	{
+		return this._faces [0];
+	}
+
+	public Color GetBackColor()
+	{
+		return this._faces [1];
+	}
+
+	public Color GetLeftColor()
+	{
+		return this._faces [2];
+	}
+
+	public Color GetRightColor()
+	{
+		return this._faces [3];
+	}
+
+	public Color GetTopColor()
+	{
+		return this._faces [4];
+	}
+
+	public Color GetBottomColor()
+	{
+		return this._faces [5];
+	}
 }
