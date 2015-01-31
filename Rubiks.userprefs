@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Assets\Scripts\RubiksCubeController.cs">
+    <Files>
+      <File FileName="Assets\Assets\Scripts\RubiksCubeController.cs" Line="372" Column="60" />
+      <File FileName="Assets\Assets\Scripts\RubiksCubeSolver.cs" Line="51" Column="3" />
+      <File FileName="Assets\Assets\Editor\RubiksCubeSolverTest.cs" Line="6" Column="2" />
+      <File FileName="Assets\Assets\Scripts\RubiksCubeModel.cs" Line="19" Column="34" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
