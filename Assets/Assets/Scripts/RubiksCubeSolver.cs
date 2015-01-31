@@ -4,9 +4,9 @@ using System.Collections;
 public class RubiksCubeSolver : MonoBehaviour
 {
 	private ArrayList ActionsList = new ArrayList();
-	private RubiksCubeModel fullCube;
+	private CubeModel[,,] fullCube;
 
-	public ArrayList SolveRubiksCube(RubiksCubeModel fullCubeModel)
+	public ArrayList SolveRubiksCube(CubeModel[,,] fullCubeModel)
 	{
 		this.fullCube = fullCubeModel;
 		SolveTopCrossMiddle ();

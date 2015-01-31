@@ -432,6 +432,11 @@ public class RubiksCubeModel : MonoBehaviour
 		return this;
 	}
 
+	public CubeModel[,,] GetRubiksCubeArray()
+	{
+		return this.fullCube;
+	}
+
 	public bool IsComplete()
 	{
 		Color front, back, left, right, top, bottom;

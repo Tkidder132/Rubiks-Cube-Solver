@@ -372,7 +372,7 @@ public class RubiksCubeController : MonoBehaviour
 		//then will return list of actions for controller to take
 		ArrayList Actions;
 
-		Actions = fullCubeSolver.SolveRubiksCube (fullCubeModel.GetRubiksCube());
+		Actions = fullCubeSolver.SolveRubiksCube (fullCubeModel.GetRubiksCubeArray());
 		for (int i = 0; i < Actions.Count-1; i++)
 		{
 			ActionQue.Add((int)Actions[i]);
