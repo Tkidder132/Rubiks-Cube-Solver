@@ -22,8 +22,7 @@ public class RubiksMain : MonoBehaviour
 										this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
 		fullCubeController.InitializeRubiksCube ();
 		fullCubeController.InitializeCubeColors ();
-		fullCubeController.ShuffleCube(50);
-		//fullCubeController.SolveCube ();
+		fullCubeController.ShuffleCube(10);
 	}
 	
 	// Update is called once per frame

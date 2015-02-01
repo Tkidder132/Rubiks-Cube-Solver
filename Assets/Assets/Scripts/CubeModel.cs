@@ -42,6 +42,61 @@ public class CubeModel : MonoBehaviour
 	{
 		return this._faces;
 	}
+	
+	public void RotateColorsForward()
+	{
+		Color temp = this._faces [0];
+		this._faces [0] = this._faces [4];
+		this._faces [4] = this._faces [1];
+		this._faces [1] = this._faces [5];
+		this._faces [5] = temp;
+	}
+
+	public void RotateColorsBackward()
+	{
+		Color temp = this._faces [0];
+		this._faces [0] = this._faces [5];
+		this._faces [5] = this._faces [1];
+		this._faces [1] = this._faces [4];
+		this._faces [4] = temp;
+	}
+	
+	public void RotateColorsClockwise()
+	{
+		Color temp = this._faces [4];
+		this._faces [4] = this._faces [2];
+		this._faces [2] = this._faces [5];
+		this._faces [5] = this._faces [3];
+		this._faces [3] = temp;
+	}
+
+	public void RotateColorsCounterClockwise()
+	{
+		Color temp = this._faces [4];
+		this._faces [4] = this._faces [3];
+		this._faces [3] = this._faces [5];
+		this._faces [5] = this._faces [2];
+		this._faces [2] = temp;
+	}
+
+	//front, back, left, right, top, bottom
+	public void RotateColorsLeft()
+	{
+		Color temp = this._faces [0];
+		this._faces [0] = this._faces [2];
+		this._faces [2] = this._faces [1];
+		this._faces [1] = this._faces [3];
+		this._faces [3] = temp;
+	}
+
+	public void RotateColorsRight()
+	{
+		Color temp = this._faces [0];
+		this._faces [0] = this._faces [3];
+		this._faces [3] = this._faces [1];
+		this._faces [1] = this._faces [2];
+		this._faces [2] = temp;
+	}
 
 	public bool CheckColors(Color[] faces)
 	{

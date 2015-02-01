@@ -93,6 +93,14 @@ public class RubiksCubeModel : MonoBehaviour
 		
 		//set middle for shits and giggles just to say we did
 		fullCube [1, 1, layer] = fullCube [1, 1, layer];
+
+		for (int y = 0; y < 3; y++)
+		{
+			for( int x = 0; x < 3; x++ )
+			{
+				fullCube[x, y, layer].RotateColorsLeft();
+			}
+		}
 	}
 	
 	private void RotateLayerCounterClockwise(int layer)
@@ -115,6 +123,14 @@ public class RubiksCubeModel : MonoBehaviour
 		
 		//set middle for shits and giggles just to say we did
 		fullCube [1, 1, layer] = fullCube [1, 1, layer];
+
+		for (int y = 0; y < 3; y++)
+		{
+			for( int x = 0; x < 3; x++ )
+			{
+				fullCube[x, y, layer].RotateColorsRight();
+			}
+		}
 	}
 
 	public void RotateTopClockwise()
@@ -169,6 +185,14 @@ public class RubiksCubeModel : MonoBehaviour
 
 		//set middle for shits and giggles just to say we did
 		fullCube [slice, 1, 1] = fullCube [slice, 1, 1];
+
+		for( int z = 0; z < 3; z++ )
+		{
+			for( int y = 0; y < 3; y++ )
+			{
+				fullCube[slice, y, z].RotateColorsForward();
+			}
+		}
 	}
 
 	private void RotateSliceBackward(int slice)
@@ -191,6 +215,14 @@ public class RubiksCubeModel : MonoBehaviour
 		
 		//set middle for shits and giggles just to say we did
 		fullCube [slice, 1, 1] = fullCube [slice, 1, 1];
+
+		for( int z = 0; z < 3; z++ )
+		{
+			for( int y = 0; y < 3; y++ )
+			{
+				fullCube[slice, y, z].RotateColorsBackward();
+			}
+		}
 	}
 
 	public void RotateLeftClockwise()
@@ -245,6 +277,14 @@ public class RubiksCubeModel : MonoBehaviour
 		
 		//set middle for shits and giggles just to say we did
 		fullCube [1, face, 1] = fullCube [1, face, 1];
+
+		for (int z = 0; z < 3; z++)
+		{
+			for( int x = 0; x < 3; x++ )
+			{
+				fullCube[x, face, z].RotateColorsClockwise();
+			}
+		}
 	}
 
 	private void RotateFaceCounterClockwise(int face)
@@ -266,6 +306,14 @@ public class RubiksCubeModel : MonoBehaviour
 		fullCube [0, face, 1] = tempCube;
 
 		fullCube [1, face, 1] = fullCube [1, face, 1];
+
+		for (int z = 0; z < 3; z++)
+		{
+			for( int x = 0; x < 3; x++ )
+			{
+				fullCube[x, face, z].RotateColorsCounterClockwise();
+			}
+		}
 	}
 
 	public void RotateFrontClockwise()
