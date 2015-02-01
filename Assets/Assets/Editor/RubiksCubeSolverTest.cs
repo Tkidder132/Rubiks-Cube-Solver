@@ -4,30 +4,42 @@ using NUnit.Framework;
 
 public class RubiksCubeSolverTest
 {
-	public CubeModel[] _cubeArrayTop = new CubeModel[9];
-	public CubeModel[] _cubeArrayMiddleHorizontal = new CubeModel[9];
-	public CubeModel[] _cubeArrayBottom = new CubeModel[9];
-	
-	public RubiksCubeController fullCubeController = new RubiksCubeController ();
-	public RubiksCubeModel fullCubeModel = new RubiksCubeModel ();
-	public RubiksCubeSolver fullCubeSolver = new RubiksCubeSolver ();
+	CubeModel[] _cubeArrayTop = new CubeModel[9];
+	CubeModel[] _cubeArrayMiddleHorizontal = new CubeModel[9];
+	CubeModel[] _cubeArrayBottom = new CubeModel[9];
+
+	GameObject RubiksMain = new GameObject();
+
+	private void InitializeTestCommon()
+	{
+		RubiksMain.AddComponent<RubiksCubeController>();
+
+		//fullCubeController.GiveCubes(this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
+		//fullCubeController.InitializeRubiksCube ();
+		//fullCubeController.InitializeCubeColors ();
+		//fullCubeController.ShuffleCube(50);
+	}
+
+	private void FinishTests()
+	{
+		GameObject.Destroy (RubiksMain);
+	}
 
 	[Test]
 	public void TestSolveTop()
 	{
 		//Arrange
 		//create data
-
-		fullCubeController.GiveCubes (this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
-		fullCubeModel.InitializeRubiksCube ();
-		fullCubeModel.InitializeCubeColors ();
-		//fullCubeController.ShuffleCube (50);
+		InitializeTestCommon ();
 
 		//Act
 		//call methods
-		//fullCubeSolver.Invoke ("SolveTopCrossMiddle", .05f);
+		//fullCubeSolver.SolveTopCrossMiddle (fullCubeModel.GetRubiksCubeArray());
+
 		//Assert
-		Assert.That (fullCubeModel.GetRubiksCubeBlock(1,1,0).GetTopColor().Equals(Color.white));
+		//Assert.That (fullCubeModel.GetRubiksCubeBlock(1,1,0).GetTopColor().Equals(Color.white));
+
+		FinishTests ();
 	}
 
 }

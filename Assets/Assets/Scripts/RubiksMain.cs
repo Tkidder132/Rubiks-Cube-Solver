@@ -18,7 +18,7 @@ public class RubiksMain : MonoBehaviour
 		fullCubeController.GiveCubes(this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
 		fullCubeController.InitializeRubiksCube ();
 		fullCubeController.InitializeCubeColors ();
-		fullCubeController.ShuffleCube(100);
+		fullCubeController.ShuffleCube(50);
 		//fullCubeController.SolveCube ();
 	}
 	
