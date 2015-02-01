@@ -15,13 +15,11 @@ public class RubiksCubeSolver : MonoBehaviour
 	{
 		//find the middle white piece and move it to center top
 		//it can only be in one of six spots
-		Debug.Log ("Solving top cross middle!");
 
 		CubeModel temp;
 		temp = fullCubeModel [1, 1, 0];
 		if (temp.GetTopColor ().Equals (Color.white))
 		{
-			Debug.Log("It's on top!");
 			fullCubeController.IncreaseStage();
 			return;
 		}
@@ -29,7 +27,6 @@ public class RubiksCubeSolver : MonoBehaviour
 		temp = fullCubeModel [1, 1, 2];
 		if (temp.GetBottomColor ().Equals (Color.white))
 		{
-			Debug.Log("It's on the bottom!");
 			fullCubeController.AddAction(9);
 			fullCubeController.AddAction(9);
 			fullCubeController.IncreaseStage();
@@ -39,7 +36,6 @@ public class RubiksCubeSolver : MonoBehaviour
 		temp = fullCubeModel [1, 0, 1];
 		if (temp.GetFrontColor ().Equals (Color.white))
 		{
-			Debug.Log("It's on the front!");
 			fullCubeController.AddAction(9);
 			fullCubeController.IncreaseStage();
 			return;
@@ -48,7 +44,6 @@ public class RubiksCubeSolver : MonoBehaviour
 		temp = fullCubeModel [1, 2, 1];
 		if (temp.GetBackColor ().Equals (Color.white))
 		{
-			Debug.Log("It's on the back!");
 			fullCubeController.AddAction(8);
 			fullCubeController.IncreaseStage();
 			return;
@@ -57,7 +52,6 @@ public class RubiksCubeSolver : MonoBehaviour
 		temp = fullCubeModel [0, 1, 1];
 		if (temp.GetLeftColor ().Equals (Color.white))
 		{
-			Debug.Log("It's on the left!");
 			fullCubeController.AddAction(14);
 			fullCubeController.IncreaseStage();
 			return;
@@ -66,7 +60,6 @@ public class RubiksCubeSolver : MonoBehaviour
 		temp = fullCubeModel [2, 1, 1];
 		if (temp.GetRightColor ().Equals (Color.white))
 		{
-			Debug.Log("It's on the right!");
 			fullCubeController.AddAction(15);
 			fullCubeController.IncreaseStage();
 			return;
