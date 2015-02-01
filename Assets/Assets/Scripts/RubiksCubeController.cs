@@ -10,18 +10,18 @@ public class RubiksCubeController : MonoBehaviour
 	private int _rotationDegree = 90;
 	private static int STAGE_COUNT = 10;
 	private int STAGE = 1;
-	private bool _solving;
+	//private bool _solving;
 
-	public RubiksCubeModel fullCubeModel;
-	public RubiksCubeView fullCubeView;
-	public RubiksCubeSolver fullCubeSolver;
+	RubiksCubeModel _fullCubeModel;
+	RubiksCubeView _fullCubeView;
+	RubiksCubeSolver _fullCubeSolver;
 
 	CubeModel[] _cubeArrayTop;
 	CubeModel[] _cubeArrayMiddleHorizontal;
 	CubeModel[] _cubeArrayBottom;
 
 	ArrayList ActionQue = new ArrayList ();
-	ArrayList ReverseActionQue = new ArrayList();
+	//ArrayList ReverseActionQue = new ArrayList();
 
 	// Update is called once per frame
 	private void Update ()
@@ -38,12 +38,12 @@ public class RubiksCubeController : MonoBehaviour
 
 	public void SetRotating(bool rotating)
 	{
-		fullCubeModel.SetRotating(rotating);
+		_fullCubeModel.SetRotating(rotating);
 	}
 
 	public bool IsRotating()
 	{
-		return fullCubeModel.IsRotating();
+		return _fullCubeModel.IsRotating();
 	}
 
 	public void RotateCubeClockwise()
@@ -98,114 +98,114 @@ public class RubiksCubeController : MonoBehaviour
 
 	public void RotateTopClockwise()
 	{
-		fullCubeView.RotateTopClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateTopClockwise ();
+		_fullCubeView.RotateTopClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateTopClockwise ();
 	}
 
 	public void RotateTopCounterClockwise()
 	{
-		fullCubeView.RotateTopCounterClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateTopCounterClockwise ();
+		_fullCubeView.RotateTopCounterClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateTopCounterClockwise ();
 	}
 
 	public void RotateMiddleHorizontalLeft()
 	{
-		fullCubeView.RotateMiddleHorizontalLeft (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateMiddleHorizontalLeft();
+		_fullCubeView.RotateMiddleHorizontalLeft (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateMiddleHorizontalLeft();
 	}
 	
 	public void RotateMiddleHorizontalRight()
 	{
-		fullCubeView.RotateMiddleHorizontalRight (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateMiddleHorizontalRight ();
+		_fullCubeView.RotateMiddleHorizontalRight (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateMiddleHorizontalRight ();
 	}
 
 	public void RotateBottomClockwise()
 	{
-		fullCubeView.RotateBottomClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateBottomClockwise ();
+		_fullCubeView.RotateBottomClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateBottomClockwise ();
 	}
 
 	public void RotateBottomCounterClockwise()
 	{
-		fullCubeView.RotateBottomCounterClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateBottomCounterClockwise ();
+		_fullCubeView.RotateBottomCounterClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateBottomCounterClockwise ();
 	}
 	
 	/************************************************************************************************/
 	
 	public void RotateLeftClockwise()
 	{
-		fullCubeView.RotateLeftClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateLeftClockwise ();
+		_fullCubeView.RotateLeftClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateLeftClockwise ();
 	}
 	
 	public void RotateLeftCounterClockwise()
 	{
-		fullCubeView.RotateLeftCounterClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateLeftCounterClockwise ();
+		_fullCubeView.RotateLeftCounterClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateLeftCounterClockwise ();
 	}
 	
 	public void RotateMiddleVerticalForward()
 	{
-		fullCubeView.RotateMiddleVerticalForward (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateMiddleVerticalForward ();
+		_fullCubeView.RotateMiddleVerticalForward (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateMiddleVerticalForward ();
 	}
 	
 	public void RotateMiddleVerticalBackwards()
 	{
-		fullCubeView.RotateMiddleVerticalBackwards (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateMiddleVerticalBackwards ();
+		_fullCubeView.RotateMiddleVerticalBackwards (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateMiddleVerticalBackwards ();
 	}
 	
 	public void RotateRightClockwise()
 	{
-		fullCubeView.RotateRightClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateRightClockwise ();
+		_fullCubeView.RotateRightClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateRightClockwise ();
 	}
 	
 	public void RotateRightCounterClockwise()
 	{
-		fullCubeView.RotateRightCounterClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateRightCounterClockwise ();
+		_fullCubeView.RotateRightCounterClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateRightCounterClockwise ();
 	}
 	
 	/************************************************************************************************/
 	
 	public void RotateFrontClockwise()
 	{
-		fullCubeView.RotateFrontClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateFrontClockwise ();
+		_fullCubeView.RotateFrontClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateFrontClockwise ();
 	}
 	
 	public void RotateFrontCounterClockwise()
 	{
-		fullCubeView.RotateFrontCounterClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateFrontCounterClockwise ();
+		_fullCubeView.RotateFrontCounterClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateFrontCounterClockwise ();
 	}
 	
 	public void RotateMiddleFaceClockwise()
 	{
-		fullCubeView.RotateMiddleFaceClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateMiddleFaceClockwise ();
+		_fullCubeView.RotateMiddleFaceClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateMiddleFaceClockwise ();
 	}
 	
 	public void RotateMiddleFaceCounterClockwise()
 	{
-		fullCubeView.RotateMiddleFaceCounterClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateMiddleFaceCounterClockwise ();
+		_fullCubeView.RotateMiddleFaceCounterClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateMiddleFaceCounterClockwise ();
 	}
 	
 	public void RotateBackClockwise()
 	{
-		fullCubeView.RotateBackClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateBackClockwise ();
+		_fullCubeView.RotateBackClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateBackClockwise ();
 	}
 	
 	public void RotateBackCounterClockwise()
 	{
-		fullCubeView.RotateBackCounterClockwise (fullCubeModel.GetRubiksCube());
-		fullCubeModel.RotateBackCounterClockwise ();
+		_fullCubeView.RotateBackCounterClockwise (_fullCubeModel.GetRubiksCube());
+		_fullCubeModel.RotateBackCounterClockwise ();
 	}
 
 	/*****************************************UTILITY FUNCTIONS*********************************************/
@@ -305,7 +305,7 @@ public class RubiksCubeController : MonoBehaviour
 	}
 	public RubiksCubeModel GetCube()
 	{
-		return fullCubeModel.GetRubiksCube ();
+		return _fullCubeModel.GetRubiksCube ();
 	}
 
 	public int GetRotationDegree()
@@ -318,31 +318,50 @@ public class RubiksCubeController : MonoBehaviour
 		this.STAGE = this.STAGE + 1;
 	}
 
-	public void SetSolving(bool isSolving)
+	/*public void SetSolving(bool isSolving)
 	{
 		this._solving = isSolving;
+	}*/
+
+	public void SetResources (RubiksCubeModel fullCubeModel, RubiksCubeView fullCubeView, RubiksCubeSolver fullCubeSolver, CubeModel[] cubeArrayTop, CubeModel[] cubeArrayMiddleHorizontal, CubeModel[] cubeArrayBottom)
+	{
+		this._fullCubeModel = fullCubeModel;
+		this._fullCubeView = fullCubeView;
+		this._fullCubeSolver = fullCubeSolver;
+
+		//this._fullCubeModel.SetRubiksCubeController (this);
+		this._fullCubeView.SetRubiksCubeController (this);
+		this._fullCubeSolver.SetRubiksCubeController (this);
+
+		this._cubeArrayTop = cubeArrayTop;
+		this._cubeArrayMiddleHorizontal = cubeArrayMiddleHorizontal;
+		this._cubeArrayBottom = cubeArrayBottom;
+
+		for (int i = 0; i < 9; i++)
+		{
+			this._cubeArrayTop[i].SetRubiksCubeController(this);
+			this._cubeArrayMiddleHorizontal[i].SetRubiksCubeController(this);
+			this._cubeArrayBottom[i].SetRubiksCubeController(this);
+
+			_fullCubeModel.GiveCubes(this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
+		}
 	}
 
 	/**************************************INITIALIZATION FUNCTIONS*****************************************/
 
 	public bool IsComplete()
 	{
-		return fullCubeModel.IsComplete ();
-	}
-
-	public void GiveCubes(CubeModel[] cubeArrayTop, CubeModel[] cubeArrayMiddleHorizontal, CubeModel[] cubeArrayBottom)
-	{
-		fullCubeModel.GiveCubes(cubeArrayTop, cubeArrayMiddleHorizontal, cubeArrayBottom);
+		return _fullCubeModel.IsComplete ();
 	}
 
 	public void InitializeRubiksCube()
 	{
-		fullCubeModel.InitializeRubiksCube ();
+		_fullCubeModel.InitializeRubiksCube ();
 	}
 	
 	public void InitializeCubeColors()
 	{
-		fullCubeModel.InitializeCubeColors ();
+		_fullCubeModel.InitializeCubeColors ();
 	}
 
 	/*****************************************SOLVING FUNCTIONS*********************************************/
@@ -360,34 +379,34 @@ public class RubiksCubeController : MonoBehaviour
 				switch(STAGE)
 				{
 					case 1:
-						fullCubeSolver.SolveTopCrossMiddle (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SolveTopCrossMiddle (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 2:
-						fullCubeSolver.SolveTopCross (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SolveTopCross (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 3:
-						fullCubeSolver.SolveTopCorners (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SolveTopCorners (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 4:
-						fullCubeSolver.SpinMiddle (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SpinMiddle (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 5:
-						fullCubeSolver.SolveMiddleSides (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SolveMiddleSides (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 6:
-						fullCubeSolver.SolveBottomCross (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SolveBottomCross (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 7:
-						fullCubeSolver.SolveBottomCrossSides (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SolveBottomCrossSides (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 8:	
-						fullCubeSolver.SolveBottomCorners (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SolveBottomCorners (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 9:
-						fullCubeSolver.FinishBottomCorners (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.FinishBottomCorners (_fullCubeModel.GetRubiksCubeArray());
 						break;
 					case 10:
-						fullCubeSolver.SpinToWin (fullCubeModel.GetRubiksCubeArray());
+						_fullCubeSolver.SpinToWin (_fullCubeModel.GetRubiksCubeArray());
 						break;
 				}
 			}

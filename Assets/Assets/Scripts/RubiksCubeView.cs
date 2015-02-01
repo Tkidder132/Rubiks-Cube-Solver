@@ -6,12 +6,17 @@ using System.Collections;
 public class RubiksCubeView : MonoBehaviour
 {
 
-	public RubiksCubeController fullCubeController;
+	private RubiksCubeController fullCubeController;
 
 	enum Layer{TOP, MIDDLE, BOTTOM};
 	enum Face{FRONT, MIDDLE, BACK};
 	enum Slice{LEFT, MIDDLE, RIGHT};
-	
+
+	public void SetRubiksCubeController(RubiksCubeController cubeController)
+	{
+		this.fullCubeController = cubeController;
+	}
+
 	public void RotateCubeClockwise(RubiksCubeModel fullCubeModel)
 	{
 		RotateFrontClockwise (fullCubeModel);

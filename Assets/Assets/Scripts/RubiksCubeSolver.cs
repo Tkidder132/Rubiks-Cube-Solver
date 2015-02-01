@@ -3,10 +3,13 @@ using System.Collections;
 
 public class RubiksCubeSolver : MonoBehaviour
 {
-	public RubiksCubeController fullCubeController;
+	private RubiksCubeController fullCubeController;
 	private ArrayList ActionsList = new ArrayList();
 
-	private CubeModel[,,] fullCube;
+	public void SetRubiksCubeController(RubiksCubeController cubeController)
+	{
+		this.fullCubeController = cubeController;
+	}
 
 	public void SolveTopCrossMiddle(CubeModel[,,] fullCubeModel)
 	{
@@ -14,14 +17,14 @@ public class RubiksCubeSolver : MonoBehaviour
 		//it can only be in one of six spots
 
 		CubeModel temp;
-		temp = fullCube [1, 1, 0];
+		temp = fullCubeModel [1, 1, 0];
 		if (temp.GetTopColor ().Equals (Color.white))
 		{
 			fullCubeController.IncreaseStage();
 			return;
 		}
 
-		temp = fullCube [1, 1, 2];
+		temp = fullCubeModel [1, 1, 2];
 		if (temp.GetBottomColor ().Equals (Color.white))
 		{
 			ActionsList.Add(9);
@@ -30,7 +33,7 @@ public class RubiksCubeSolver : MonoBehaviour
 			return;
 		}
 
-		temp = fullCube [1, 0, 1];
+		temp = fullCubeModel [1, 0, 1];
 		if (temp.GetFrontColor ().Equals (Color.white))
 		{
 			ActionsList.Add(9);
@@ -38,7 +41,7 @@ public class RubiksCubeSolver : MonoBehaviour
 			return;
 		}
 
-		temp = fullCube [1, 2, 1];
+		temp = fullCubeModel [1, 2, 1];
 		if (temp.GetBackColor ().Equals (Color.white))
 		{
 			ActionsList.Add(8);
@@ -46,7 +49,7 @@ public class RubiksCubeSolver : MonoBehaviour
 			return;
 		}
 
-		temp = fullCube [0, 1, 1];
+		temp = fullCubeModel [0, 1, 1];
 		if (temp.GetLeftColor ().Equals (Color.white))
 		{
 			ActionsList.Add(14);
@@ -54,7 +57,7 @@ public class RubiksCubeSolver : MonoBehaviour
 			return;
 		}
 
-		temp = fullCube [2, 1, 1];
+		temp = fullCubeModel [2, 1, 1];
 		if (temp.GetRightColor ().Equals (Color.white))
 		{
 			ActionsList.Add(15);

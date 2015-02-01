@@ -4,7 +4,7 @@ using System.Collections;
 //all the data manipulation
 public class RubiksCubeModel : MonoBehaviour
 {
-	public RubiksCubeController fullCubeController;
+	//private RubiksCubeController fullCubeController;
 
 	public CubeModel[,,] fullCube = new CubeModel[3,3,3];
 
@@ -17,6 +17,11 @@ public class RubiksCubeModel : MonoBehaviour
 	enum Layer{TOP, MIDDLE, BOTTOM};
 	enum Face{FRONT, MIDDLE, BACK};
 	enum Slice{LEFT, MIDDLE, RIGHT};
+
+	/*public void SetRubiksCubeController(RubiksCubeController cubeController)
+	{
+		this.fullCubeController = cubeController;
+	}*/
 
 	public void RotateCubeClockwise()
 	{
@@ -70,7 +75,7 @@ public class RubiksCubeModel : MonoBehaviour
 
 	private void RotateLayerClockwise(int layer)
 	{
-		var tempCube = new CubeModel ();
+		CubeModel tempCube;
 		
 		//set corners
 		tempCube = fullCube [0, 2, layer];
@@ -92,7 +97,7 @@ public class RubiksCubeModel : MonoBehaviour
 	
 	private void RotateLayerCounterClockwise(int layer)
 	{
-		var tempCube = new CubeModel ();
+		CubeModel tempCube;
 
 		//set corners
 		tempCube = fullCube [0, 2, layer];
@@ -146,7 +151,7 @@ public class RubiksCubeModel : MonoBehaviour
 
 	private void RotateSliceForward(int slice)
 	{
-		var tempCube = new CubeModel ();
+		CubeModel tempCube;
 
 		//set corners
 		tempCube = fullCube [slice, 2, 0];
@@ -168,7 +173,7 @@ public class RubiksCubeModel : MonoBehaviour
 
 	private void RotateSliceBackward(int slice)
 	{
-		var tempCube = new CubeModel ();
+		CubeModel tempCube;
 
 		//set corners
 		tempCube = fullCube [slice, 2, 0];
@@ -222,7 +227,7 @@ public class RubiksCubeModel : MonoBehaviour
 
 	private void RotateFaceClockwise (int face)
 	{
-		var tempCube = new CubeModel ();
+		CubeModel tempCube;
 
 		//set corners
 		tempCube = fullCube [0, face, 0];
@@ -244,7 +249,7 @@ public class RubiksCubeModel : MonoBehaviour
 
 	private void RotateFaceCounterClockwise(int face)
 	{
-		var tempCube = new CubeModel ();
+		CubeModel tempCube;
 
 		//set corners
 		tempCube = fullCube [0, face, 0];

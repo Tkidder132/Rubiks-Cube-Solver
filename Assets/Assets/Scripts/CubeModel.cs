@@ -6,7 +6,12 @@ public class CubeModel : MonoBehaviour
 	//front, back, left, right, top, bottom
 	public Color[] _faces = new Color[6];
 
-	public RubiksCubeController cubeController;
+	private RubiksCubeController fullCubeController;
+
+	public void SetRubiksCubeController(RubiksCubeController cubeController)
+	{
+		this.fullCubeController = cubeController;
+	}
 
 	public void RotateCube(Vector3 cubeAxis, Vector3 cubeDirection, float cubeTime)
 	{
@@ -15,13 +20,13 @@ public class CubeModel : MonoBehaviour
 
 	private IEnumerator rotateCubeCoroutine(Vector3 cubeAxis, Vector3 cubeDirection, float cubeTime)
 	{
-		cubeController.SetRotating (true);
+		fullCubeController.SetRotating (true);
 		for (var i = 0; i < 30; i++)
 		{
 			this.transform.RotateAround (cubeAxis, cubeDirection, 3);
 			yield return new WaitForSeconds(.0005f);
 		}
-		cubeController.SetRotating (false);
+		fullCubeController.SetRotating (false);
 		yield return 0;
 	}
 

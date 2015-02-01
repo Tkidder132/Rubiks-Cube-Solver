@@ -3,11 +3,14 @@ using System.Collections;
 
 public class RubiksMain : MonoBehaviour
 {
-	public RubiksCubeController fullCubeController;
-
 	public CubeModel[] _cubeArrayTop = new CubeModel[9];
 	public CubeModel[] _cubeArrayMiddleHorizontal = new CubeModel[9];
 	public CubeModel[] _cubeArrayBottom = new CubeModel[9];
+
+	public RubiksCubeModel fullCubeModel;
+	public RubiksCubeView fullCubeView;
+	public RubiksCubeController fullCubeController;
+	public RubiksCubeSolver fullCubeSolver;
 
 	//Top = 0, Middle = 1, Bottom = 2
 	int _level = 0;
@@ -15,7 +18,8 @@ public class RubiksMain : MonoBehaviour
 	// Use this for initialization
 	private void Start ()
 	{
-		fullCubeController.GiveCubes(this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
+		fullCubeController.SetResources (fullCubeModel, fullCubeView, fullCubeSolver, 
+										this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
 		fullCubeController.InitializeRubiksCube ();
 		fullCubeController.InitializeCubeColors ();
 		fullCubeController.ShuffleCube(50);

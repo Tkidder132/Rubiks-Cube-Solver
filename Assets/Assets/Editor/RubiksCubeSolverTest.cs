@@ -4,9 +4,9 @@ using NUnit.Framework;
 
 public class RubiksCubeSolverTest
 {
-	CubeModel[] _cubeArrayTop = new CubeModel[9];
-	CubeModel[] _cubeArrayMiddleHorizontal = new CubeModel[9];
-	CubeModel[] _cubeArrayBottom = new CubeModel[9];
+	//CubeModel[] _cubeArrayTop = new CubeModel[9];
+	//CubeModel[] _cubeArrayMiddleHorizontal = new CubeModel[9];
+	//CubeModel[] _cubeArrayBottom = new CubeModel[9];
 
 	GameObject RubiksMain = new GameObject();
 
