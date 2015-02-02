@@ -28,13 +28,17 @@ public class RubiksCubeController : MonoBehaviour
 	{
 		if (ActionQue.Count > 0)
 		{
+			Debug.Log(ActionQue.Count);
 			if (!IsRotating ())
 			{
 				CallMethod ((int)ActionQue [0]);
 				ActionQue.RemoveAt (0);
 			}
 		}
-		SolveCube ();
+		else
+		{
+			SolveCube ();
+		}
 	}
 
 	public void SetRotating(bool rotating)
@@ -399,6 +403,9 @@ public class RubiksCubeController : MonoBehaviour
 					case 4:
 						Debug.Log("STAGE 4");
 						_fullCubeSolver.SpinMiddle (_fullCubeModel.GetRubiksCubeArray());
+						//we flip the cube cause thats the orientation I know how to solve it =/
+						RotateCubeForward();
+						RotateCubeForward();
 						break;
 					case 5:
 						Debug.Log("STAGE 5");
