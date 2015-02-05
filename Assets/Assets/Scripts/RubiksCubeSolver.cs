@@ -69,9 +69,56 @@ public class RubiksCubeSolver : MonoBehaviour
 	public void SolveTopCross(CubeModel[,,] fullCubeModel)
 	{
 		//rotate the rest of the cross sides
-
 		//find red, orange, green, blues sides
+		//each piece can only be in one of 12 spots.
 		//rotate red, orange, green, blue sides to top.
+
+								// top layer                  middle layer            bottom layer
+		CubeModel[] cubeArray = {fullCubeModel[ 1, 0, 0], fullCubeModel[ 0, 0, 1], fullCubeModel[ 1, 0, 2],
+								fullCubeModel[ 0, 1, 0], fullCubeModel[ 2, 0, 1], fullCubeModel[ 0, 1, 2],
+								fullCubeModel[ 1, 2, 0], fullCubeModel[ 0, 2, 1], fullCubeModel[ 1, 2, 2],
+								fullCubeModel[ 2, 1, 0], fullCubeModel[ 2, 2, 1], fullCubeModel[ 2, 1, 2]};
+
+		//red, orange, blue, green
+		CubeModel[] sidesArray = new CubeModel[4];
+		//for every cube we've pulled out of the rubiks cube, we go through them and get their color array for each
+		//then we go through color array, and if one of those pieces has white (meaning a top piece)
+		//we determine what is the other color is has. 
+		//then we set the sidesArray properly
+		for (int i = 0; i < cubeArray.Length; i++)
+		{
+			Color[] temp = cubeArray[i].GetColorsArray();
+			
+			for( int j = 0; j < temp.Length; j++ )
+			{
+				if( temp[j].Equals(Color.white) )
+				{
+					for( int k = 0; k < temp.Length; k++ )
+					{
+						if( temp[k].Equals(Color.black) && temp[k].Equals(Color.white) )
+						{
+							/*switch(temp[i])
+							{
+							case Color.red:
+								sidesArray[0] = cubeArray[i];
+								break;
+							case Color.magenta:
+								sidesArray[1] = cubeArray[i];
+								break;
+							case Color.blue:
+								sidesArray[2] = cubeArray[i];
+								break;
+							case Color.green:
+								sidesArray[3] = cubeArray[i];
+								break;
+							default:
+								break;
+							}*/
+						}
+					}
+				}
+			}
+		}
 
 		fullCubeController.IncreaseStage();
 		return;

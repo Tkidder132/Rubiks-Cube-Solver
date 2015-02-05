@@ -490,6 +490,29 @@ public class RubiksCubeModel : MonoBehaviour
 		return this.fullCube;
 	}
 
+	public int[] GetCubeCoordinates(CubeModel tempCube)
+	{
+		int[] coords = new int[3];
+
+		for (int x = 0; x < 3; x++)
+		{
+			for( int y = 0; y < 3; y++ )
+			{
+				for( int z = 0; z < 3; z++ )
+				{
+					if( fullCube[x,y,z].Equals(tempCube) )
+					{
+						coords[0] = x;
+						coords[1] = y;
+						coords[2] = z;
+					}
+				}
+			}
+		}
+
+		return coords;
+	}
+
 	public bool IsComplete()
 	{
 		Color front, back, left, right, top, bottom;

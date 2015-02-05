@@ -313,6 +313,11 @@ public class RubiksCubeController : MonoBehaviour
 		return _fullCubeModel.GetRubiksCube ();
 	}
 
+	public int[] GetCubeCoordinates(CubeModel tempCube)
+	{
+		return _fullCubeModel.GetCubeCoordinates (tempCube);
+	}
+
 	public int GetRotationDegree()
 	{
 		return this._rotationDegree;
