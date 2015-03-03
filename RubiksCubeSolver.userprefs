@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Assets\Scripts\RubiksCubeSolver.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Assets\Scripts\RubiksCubeController.cs">
     <Files>
-      <File FileName="Assets\Assets\Scripts\RubiksCubeSolver.cs" Line="116" Column="11" />
+      <File FileName="Assets\Assets\Scripts\RubiksCubeSolver.cs" Line="13" Column="2" />
       <File FileName="Assets\Assets\Scripts\RubiksMain.cs" Line="1" Column="1" />
       <File FileName="Assets\Assets\Scripts\RubiksCubeView.cs" Line="1" Column="1" />
       <File FileName="Assets\Assets\Scripts\RubiksCubeModel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Assets\Scripts\RubiksCubeController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Assets\Scripts\RubiksCubeController.cs" Line="372" Column="36" />
       <File FileName="Assets\Assets\Scripts\CubeModel.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
