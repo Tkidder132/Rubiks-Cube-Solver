@@ -46,12 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Assets\Controllers\ActionQueueController.cs" />
+     <Compile Include="Assets\Assets\Controllers\RubiksCubeController.cs" />
+     <Compile Include="Assets\Assets\Models\ActionQueueModel.cs" />
+     <Compile Include="Assets\Assets\Models\CubeModel.cs" />
+     <Compile Include="Assets\Assets\Models\RubiksCubeModel.cs" />
      <Compile Include="Assets\Assets\Scripts\CameraControlScript.cs" />
-     <Compile Include="Assets\Assets\Scripts\CubeModel.cs" />
-     <Compile Include="Assets\Assets\Scripts\RubiksCubeController.cs" />
-     <Compile Include="Assets\Assets\Scripts\RubiksCubeModel.cs" />
      <Compile Include="Assets\Assets\Scripts\RubiksCubeSolver.cs" />
-     <Compile Include="Assets\Assets\Scripts\RubiksCubeView.cs" />
      <Compile Include="Assets\Assets\Scripts\RubiksMain.cs" />
      <Compile Include="Assets\Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\Assets\UnityTestTools\Assertions\AssertionException.cs" />
@@ -94,6 +95,7 @@
      <Compile Include="Assets\Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerCallbackList.cs" />
      <Compile Include="Assets\Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerConfigurator.cs" />
      <Compile Include="Assets\Assets\UnityTestTools\IntegrationTestsFramework\TestingAssets\CallTesting.cs" />
+     <Compile Include="Assets\Assets\Views\RubiksCubeView.cs" />
      <None Include="Assets\Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Cursor.shader" />
      <None Include="Assets\Assets\UnityTestTools\LICENSE.txt" />
      <None Include="Assets\Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleAdditiveBlend.shader" />

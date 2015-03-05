@@ -408,7 +408,7 @@ public class RubiksCubeController : MonoBehaviour
 					case 4:
 						Debug.Log("STAGE 4");
 						_fullCubeSolver.SpinMiddle (_fullCubeModel.GetRubiksCubeArray());
-						//we flip the cube cause thats the orientation I know how to solve it =/
+						//we flip the cube cause thats the orientation I know how to solve it
 						RotateCubeForward();
 						RotateCubeForward();
 						break;
