@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-//rubiks main calls the functions from here
-//this calls functions from rubiks cube model and view
-//it also gets data from them and sends to main
 public class RubiksCubeController : MonoBehaviour
 {
 	private int _rotationDegree = 90;
@@ -16,23 +12,20 @@ public class RubiksCubeController : MonoBehaviour
 	RubiksCubeView _fullCubeView;
 	RubiksCubeSolver _fullCubeSolver;
 
+	ActionQueueController _queueController;
+
 	CubeModel[] _cubeArrayTop;
 	CubeModel[] _cubeArrayMiddleHorizontal;
 	CubeModel[] _cubeArrayBottom;
 
-	ArrayList ActionQue = new ArrayList ();
-	//ArrayList ReverseActionQue = new ArrayList();
-
 	// Update is called once per frame
 	private void Update ()
 	{
-		if (ActionQue.Count > 0)
+		if (_queueController.GetQueueCount() > 0)
 		{
-			Debug.Log(ActionQue.Count);
 			if (!IsRotating ())
 			{
-				CallMethod ((int)ActionQue [0]);
-				ActionQue.RemoveAt (0);
+				CallMethod(_queueController.GetNextMethod());
 			}
 		}
 		else
@@ -221,7 +214,8 @@ public class RubiksCubeController : MonoBehaviour
 		for (var i = 0; i < shuffleTimes; i++) 
 		{
 			randMethod = Random.Range(0, 24);
-			ActionQue.Add(randMethod);
+
+			_queueController.AddToQueue(randMethod);
 		}
 	}
 
@@ -335,10 +329,12 @@ public class RubiksCubeController : MonoBehaviour
 
 	public void AddAction(int method)
 	{
-		this.ActionQue.Add (method);
+		_queueController.AddToQueue (method);
 	}
 
-	public void SetResources (RubiksCubeModel fullCubeModel, RubiksCubeView fullCubeView, RubiksCubeSolver fullCubeSolver, CubeModel[] cubeArrayTop, CubeModel[] cubeArrayMiddleHorizontal, CubeModel[] cubeArrayBottom)
+	public void SetResources (RubiksCubeModel fullCubeModel, RubiksCubeView fullCubeView, RubiksCubeSolver fullCubeSolver, 
+	                          CubeModel[] cubeArrayTop, CubeModel[] cubeArrayMiddleHorizontal, CubeModel[] cubeArrayBottom, 
+	                          ActionQueueController queueController, ActionQueueModel queueModel)
 	{
 		this._fullCubeModel = fullCubeModel;
 		this._fullCubeView = fullCubeView;
@@ -351,6 +347,9 @@ public class RubiksCubeController : MonoBehaviour
 		this._cubeArrayTop = cubeArrayTop;
 		this._cubeArrayMiddleHorizontal = cubeArrayMiddleHorizontal;
 		this._cubeArrayBottom = cubeArrayBottom;
+
+		this._queueController = queueController;
+		this._queueController.SetActionQueueModel (queueModel);
 
 		for (int i = 0; i < 9; i++)
 		{
@@ -389,7 +388,7 @@ public class RubiksCubeController : MonoBehaviour
 		//then will return list of actions for controller to take
 		if (STAGE <= STAGE_COUNT)
 		{
-			if( ActionQue.Count == 0 )
+			if( _queueController.GetQueueCount() == 0 )
 			{
 				switch(STAGE)
 				{

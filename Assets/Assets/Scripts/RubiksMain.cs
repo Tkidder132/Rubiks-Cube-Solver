@@ -7,10 +7,13 @@ public class RubiksMain : MonoBehaviour
 	public CubeModel[] _cubeArrayMiddleHorizontal = new CubeModel[9];
 	public CubeModel[] _cubeArrayBottom = new CubeModel[9];
 
-	public RubiksCubeModel fullCubeModel;
-	public RubiksCubeView fullCubeView;
-	public RubiksCubeController fullCubeController;
-	public RubiksCubeSolver fullCubeSolver;
+	public RubiksCubeModel _fullCubeModel;
+	public RubiksCubeView _fullCubeView;
+	public RubiksCubeController _fullCubeController;
+	public RubiksCubeSolver _fullCubeSolver;
+
+	public ActionQueueController _queueController;
+	public ActionQueueModel _queueModel;
 
 	//Top = 0, Middle = 1, Bottom = 2
 	int _level = 0;
@@ -18,11 +21,12 @@ public class RubiksMain : MonoBehaviour
 	// Use this for initialization
 	private void Start ()
 	{
-		fullCubeController.SetResources (fullCubeModel, fullCubeView, fullCubeSolver, 
-										this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom);
-		fullCubeController.InitializeRubiksCube ();
-		fullCubeController.InitializeCubeColors ();
-		fullCubeController.ShuffleCube(10);
+		_fullCubeController.SetResources (this._fullCubeModel, this._fullCubeView, this._fullCubeSolver, 
+										this._cubeArrayTop, this._cubeArrayMiddleHorizontal, this._cubeArrayBottom,
+		                                  this._queueController, this._queueModel);
+		_fullCubeController.InitializeRubiksCube ();
+		_fullCubeController.InitializeCubeColors ();
+		_fullCubeController.ShuffleCube(25);
 	}
 	
 	// Update is called once per frame
@@ -32,23 +36,23 @@ public class RubiksMain : MonoBehaviour
 		{
 			if( this._level == 0 )
 			{
-				if( !fullCubeController.IsRotating() )
+				if( !_fullCubeController.IsRotating() )
 				{
-					fullCubeController.RotateTopClockwise ();
+					_fullCubeController.RotateTopClockwise ();
 				}
 			}
 			else if( this._level == 1 )
 			{
-				if( !fullCubeController.IsRotating() )
+				if( !_fullCubeController.IsRotating() )
 				{
-					fullCubeController.RotateMiddleHorizontalLeft();
+					_fullCubeController.RotateMiddleHorizontalLeft();
 				}
 			}
 			else
 			{
-				if( !fullCubeController.IsRotating() )
+				if( !_fullCubeController.IsRotating() )
 				{
-					fullCubeController.RotateBottomCounterClockwise();
+					_fullCubeController.RotateBottomCounterClockwise();
 				}
 			}
 		}
@@ -57,72 +61,72 @@ public class RubiksMain : MonoBehaviour
 		{
 			if( this._level == 0 )
 			{
-				if( !fullCubeController.IsRotating() )
+				if( !_fullCubeController.IsRotating() )
 				{
-					fullCubeController.RotateTopCounterClockwise ();
+					_fullCubeController.RotateTopCounterClockwise ();
 				}
 			}
 			else if( this._level == 1 )
 			{
-				if( !fullCubeController.IsRotating() )
+				if( !_fullCubeController.IsRotating() )
 				{
-					fullCubeController.RotateMiddleHorizontalRight();
+					_fullCubeController.RotateMiddleHorizontalRight();
 				}
 			}
 			else
 			{
-				if( !fullCubeController.IsRotating() )
+				if( !_fullCubeController.IsRotating() )
 				{
-					fullCubeController.RotateBottomClockwise();
+					_fullCubeController.RotateBottomClockwise();
 				}
 			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.Q))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateLeftCounterClockwise();
+				_fullCubeController.RotateLeftCounterClockwise();
 			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.A))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateLeftClockwise();
+				_fullCubeController.RotateLeftClockwise();
 			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.W))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateMiddleVerticalBackwards();
+				_fullCubeController.RotateMiddleVerticalBackwards();
 			}
 		}
 		
 		if (Input.GetKeyDown (KeyCode.S))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateMiddleVerticalForward();
+				_fullCubeController.RotateMiddleVerticalForward();
 			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.D))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateRightCounterClockwise();
+				_fullCubeController.RotateRightCounterClockwise();
 			}
 		}
 		
 		if (Input.GetKeyDown (KeyCode.E))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateRightClockwise();
+				_fullCubeController.RotateRightClockwise();
 			}
 		}
 
@@ -130,50 +134,50 @@ public class RubiksMain : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.N))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateFrontClockwise();
+				_fullCubeController.RotateFrontClockwise();
 			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.B))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateFrontCounterClockwise();
+				_fullCubeController.RotateFrontCounterClockwise();
 			}
 		}
 
 
 		if (Input.GetKeyDown (KeyCode.H))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateMiddleFaceClockwise();
+				_fullCubeController.RotateMiddleFaceClockwise();
 			}
 		}
 		
 		if (Input.GetKeyDown (KeyCode.G))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateMiddleFaceCounterClockwise();
+				_fullCubeController.RotateMiddleFaceCounterClockwise();
 			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.T))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateBackClockwise();
+				_fullCubeController.RotateBackClockwise();
 			}
 		}
 		
 		if (Input.GetKeyDown (KeyCode.Y))
 		{
-			if( !fullCubeController.IsRotating() )
+			if( !_fullCubeController.IsRotating() )
 			{
-				fullCubeController.RotateBackCounterClockwise();
+				_fullCubeController.RotateBackCounterClockwise();
 			}
 		}
 
@@ -201,7 +205,7 @@ public class RubiksMain : MonoBehaviour
 			}
 		}
 
-		if (fullCubeController.IsComplete ())
+		if (_fullCubeController.IsComplete ())
 		{
 			Debug.Log("COMPLETE!");
 		}

@@ -6,6 +6,12 @@ public class ActionQueueModel : MonoBehaviour
 	private ArrayList _ActionQueue;
 	private ArrayList _HistoryQueue;
 
+	void Start()
+	{
+		_ActionQueue = new ArrayList ();
+		_HistoryQueue = new ArrayList ();
+	}
+
 	public void AddToQueue(int method)
 	{
 		this._ActionQueue.Add(method);
@@ -14,8 +20,14 @@ public class ActionQueueModel : MonoBehaviour
 
 	public int GetNextMethod()
 	{
-		return (int)this._ActionQueue.IndexOf (0);
-		this._ActionQueue.Remove (0);
+		int NextMethod = (int)this._ActionQueue[0];
+		this._ActionQueue.RemoveAt(0);
+		return NextMethod;
+	}
+
+	public int GetQueueCount()
+	{
+		return this._ActionQueue.Count;
 	}
 
 	public ArrayList getHistoryQueue()
