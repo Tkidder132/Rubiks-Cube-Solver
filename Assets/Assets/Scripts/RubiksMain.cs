@@ -10,6 +10,7 @@ public class RubiksMain : MonoBehaviour
 	public RubiksCubeModel _fullCubeModel;
 	public RubiksCubeView _fullCubeView;
 	public RubiksCubeController _fullCubeController;
+
 	public RubiksCubeSolver _fullCubeSolver;
 
 	public ActionQueueController _queueController;
