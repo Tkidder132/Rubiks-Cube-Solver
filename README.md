@@ -10,3 +10,21 @@ The solving method is utilizing the Layer Method as described in detail here: ht
 * Color.Magenta is being used for the orange side of the rubiks cube because Color.Orange is not built into Unity. It still works just the same using that color though.
 
 * The "clockwise" direction is ALWAYS in coordination with looking AT the face. For example, rotating the bottom face clockwise is the opposite direction of rotating the top face clockwise. 
+
+# Controls
+
+* Left/Right to rotate to the left or right
+
+* Up/Down will move between the rows
+
+* Q/A rotates left forward/backwards
+
+* W/S rotates middle forward/backwards
+
+* E/D rotates right forward/backwards
+
+* N/B rotates front clockwise/counter clockwise
+
+* H/G rotates middle clockwise/counter clockwise
+
+* T/Y rotates back clockwise/counter clockwise
